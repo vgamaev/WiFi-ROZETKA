@@ -846,21 +846,6 @@ URC2.DEV&lt;br&gt;
 XTAL.DEV&lt;br&gt;
 XVARISTOR.DEV&lt;br&gt;</description>
 <packages>
-<package name="SOT23">
-<description>&lt;b&gt;SOT-23&lt;/b&gt;</description>
-<wire x1="1.4224" y1="0.6604" x2="1.4224" y2="-0.6604" width="0.1524" layer="51"/>
-<wire x1="1.4224" y1="-0.6604" x2="-1.4224" y2="-0.6604" width="0.1524" layer="51"/>
-<wire x1="-1.4224" y1="-0.6604" x2="-1.4224" y2="0.6604" width="0.1524" layer="51"/>
-<wire x1="-1.4224" y1="0.6604" x2="1.4224" y2="0.6604" width="0.1524" layer="51"/>
-<smd name="3" x="0" y="1.1" dx="1" dy="1.4" layer="1"/>
-<smd name="2" x="0.95" y="-1.1" dx="1" dy="1.4" layer="1"/>
-<smd name="1" x="-0.95" y="-1.1" dx="1" dy="1.4" layer="1"/>
-<text x="-1.905" y="1.905" size="1.27" layer="25">&gt;NAME</text>
-<text x="-1.905" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.2286" y1="0.7112" x2="0.2286" y2="1.2954" layer="51"/>
-<rectangle x1="0.7112" y1="-1.2954" x2="1.1684" y2="-0.7112" layer="51"/>
-<rectangle x1="-1.1684" y1="-1.2954" x2="-0.7112" y2="-0.7112" layer="51"/>
-</package>
 </packages>
 <symbols>
 <symbol name="N_CHANNEL_TRANSISTOR">
@@ -888,21 +873,18 @@ XVARISTOR.DEV&lt;br&gt;</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="2N5458" prefix="X">
-<description>&lt;b&gt;N-Channel General Purpose Amplifier&lt;/b&gt;&lt;p&gt;
-Source: &lt;a href="http://www.farnell.com/datasheets/46943.pdf"&gt; Data sheet &lt;/a&gt;</description>
+<deviceset name="2N7002" prefix="X">
+<description>Small signal N-Channel MOSFET transistor</description>
 <gates>
-<gate name="G$1" symbol="N_CHANNEL_TRANSISTOR" x="-2.54" y="7.62"/>
+<gate name="G$1" symbol="N_CHANNEL_TRANSISTOR" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="SOT23">
-<connects>
-<connect gate="G$1" pin="D" pad="1"/>
-<connect gate="G$1" pin="G" pad="3"/>
-<connect gate="G$1" pin="S" pad="2"/>
-</connects>
+<device name="">
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="SPICEMODEL" value="2N7002.mod" constant="no"/>
+<attribute name="VALUE2" value=" 2N7002" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -6913,7 +6895,7 @@ super fast rectifier, 2 A</description>
 <parts>
 <part name="JP1" library="pinhead" deviceset="PINHD-2X4" device=""/>
 <part name="IC1" library="lm1117_11" deviceset="LM1117?-*" device="MP" technology="3.3"/>
-<part name="X1" library="Misc" deviceset="2N5458" device=""/>
+<part name="X1" library="Misc" deviceset="2N7002" device=""/>
 <part name="D1" library="led" deviceset="SFH482" device=""/>
 <part name="R1" library="rcl" deviceset="R-EU_" device="M0805"/>
 <part name="IC2" library="lm1117_11" deviceset="LM1117?-*" device="MP" technology="5.0"/>
@@ -7083,7 +7065,7 @@ super fast rectifier, 2 A</description>
 <junction x="60.96" y="96.52"/>
 </segment>
 </net>
-<net name="+3V3" class="0">
+<net name="N$17" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="OUT"/>
 <wire x1="63.5" y1="50.8" x2="81.28" y2="50.8" width="0.1524" layer="91"/>
